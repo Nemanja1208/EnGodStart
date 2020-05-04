@@ -17,6 +17,8 @@ class Register extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+
+
     handleUsername(event) {
 
       this.setState({username: event.target.value});

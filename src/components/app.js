@@ -23,6 +23,14 @@ class App extends React.Component {
     this.changingstate = this.changingstate.bind(this)
   }
 
+      //Persisted state (Keep state on refresh)
+      componentDidMount(){
+      localforage.getItem('UserLoggedIn').then(value =>{
+        this.setState({isLoggedIn: value});
+      }).catch(function(err){
+        console.log(err);
+      })
+      }
   //  componentDidMount(){
   //   this.setState({isLoggedIn: true});
     //  console.log(this.state.isLoggedIn);

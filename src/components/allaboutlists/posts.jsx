@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { default as localforage } from "localforage";
 import LSProps from "../allaboutlists/localstoragelistprops.jsx";
+import DeleteListButton from "../allaboutlists/deletelistfromstorage.jsx";
 
 class Posts extends React.Component {
   constructor(props){
@@ -9,10 +10,8 @@ class Posts extends React.Component {
     this.state = {
         thelist: {}
     };
-    //  this.p = null;
-    //  this.foodtype = null;
-    //  this.h4 = null;
     this.getLists = this.getLists.bind(this);
+    this.deletelist = this.deletelist.bind(this);
   }
   
 
@@ -29,19 +28,23 @@ class Posts extends React.Component {
             this.setState({thelist: thenewlist})
             console.log(this.state.thelist[0]);
 
-            //Passing down the list properties in the HTML elements
-            this.nameOfOrg.innerHTML = (thenewlist[0].orgname);
-            this.type.innerHTML = (thenewlist[0].foodtype);
-            this.amountinkg.innerHTML = (thenewlist[0].amount);
-            this.expirationdate.innerHTML = (thenewlist[0].expdate);
-            this.locationofpickup.innerHTML = (thenewlist[0].pickuplocation);
-
-
         }).catch(function(err){
             console.log(err);
             
         });
         }
+
+        //Version of deleting the localstorage lists (beginer version)
+        deletelist(){
+            //Passing down the list properties in the HTML elements
+            this.nameOfOrg.innerHTML = '';
+            this.type.innerHTML = '';
+            this.amountinkg.innerHTML = '';
+            this.expirationdate.innerHTML = '';
+            this.locationofpickup.innerHTML = '';
+            this.delete.innerHTML = '';
+        }
+
     // componentWillMount(){
     //     window.addEventListener("load", this.getLists);
     // }
@@ -59,60 +62,32 @@ class Posts extends React.Component {
     //         location={properties.location}
     //     />)
     // }
-        // renderobject(){
-        //     return Object.entries(this).map(([key, value], i) => {
-        //         return (
-        //             <div key={key}>
-        //                 orgname is: {value.orgname};
-        //                 type is: {value.amount}
-        //             </div>
-        //         )
-        //     })
-        // }
 
     render() {
-        const postslists = this.state.thelist[0];
         if(this.state.thelist.length > 1){
             return(
             <div>
             <h1>Today's Donations</h1>
             <button onClick={this.getLists}>Get the Donations</button>
-            {/* <button onClick={this.renderprops}></button> */}
             <div className="card">
-                {/* <div>
-                    <button onClick={this.renderobject}>Render Object</button>
-                </div> */}
-                {/* <ul>
-                    {Object.keys(postslists).map(item => <li key={item}>
-                        {postslists[item].orgname}
-                    </li>)}
-                </ul> */}
-            <div className="container">
-            
+                  <table>
+                  <tr>
+                    <th>Company/Organisation</th>
+                    <th>Food Type</th>
+                    <th>Amount</th>
+                    <th>Expiration Date</th>
+                    <th>Pick Up Location</th>
+                </tr>
 
-            <h1 ref={elem => this.nameOfOrg = elem}></h1>
-            <h2 ref={elem => this.type = elem}></h2>   
-            <h3 ref={elem => this.amountinkg = elem}></h3>  
-            <h3 ref={elem => this.expirationdate = elem}></h3>  
-            <h3 ref={elem => this.locationofpickup = elem}></h3>  
-
-            <table>
-  <tr>
-    <th>Company/Organisation</th>
-    <th>Food Type</th>
-    <th>Amount</th>
-    <th>Expiration Date</th>
-    <th>Pick Up Location</th>
-  </tr>
-  <tr>
-    <td ref={elem => this.nameOfOrg = elem}></td>
-    <td ref={elem => this.type = elem}></td>
-    <td ref={elem => this.amountinkg = elem}></td>
-    <td ref={elem => this.expirationdate = elem}></td>
-    <td ref={elem => this.locationofpickup = elem}></td>
-  </tr>
-</table>
-            </div>
+                    {Object.keys(this.state.thelist).map(item => <tr key={item}>
+                       <td> {this.state.thelist[item].orgname}</td>
+                       <td> {this.state.thelist[item].foodtype}</td>
+                       <td> {this.state.thelist[item].amount}</td>
+                       <td> {this.state.thelist[item].expdate}</td>
+                       <td> {this.state.thelist[item].pickuplocation}</td>
+                       <td><DeleteListButton nr={item}/></td>
+                    </tr>)}
+                 </table>
             </div>
             </div>
             )} else {
@@ -120,9 +95,7 @@ class Posts extends React.Component {
         <div>
             <h1>Today's Donations</h1>
             <button onClick={this.getLists}>Get the Donations</button>         
-        </div>
-        
+        </div>     
     );
-    }}
-    }
+    }}}
     export default Posts ;
