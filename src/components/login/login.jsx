@@ -1,5 +1,6 @@
 import React from "react";
 import { default as localforage } from "localforage";
+import style from "../login/formstyle.css";
 
 
 class Login extends React.Component {
@@ -52,17 +53,7 @@ class Login extends React.Component {
       } else{
         alert("Wrong Username and/or Password");
       }
-    //   if(username == null){
-    //      alert('Not a valid username/password');
-
-    //    }else {
-    //      alert('welcome');
-    //    }
-    //  console.log(username);
      })
-    //  }).catch(function(err){
-    //    console.log(err);
-    //  });
     }
 
 
@@ -70,15 +61,18 @@ class Login extends React.Component {
     return (
 
         <div>
-            <h1>Already a member</h1>
-            <h2>Log-In</h2>
-      <form >
-      <label >Username</label><br/>
-    <input type="text" id="fname" value={this.state.username} onChange={this.handleUsername} name="firstname" placeholder="Your Username.."/><br/>
+
+      <form className="forms">
+      <h1>Welcome to the Hope App</h1>
+          <h3>[Help Other People Eat]</h3>
+      <h1 className="hh1">Already a member ?</h1>
+            <h2 className="hh2">Please Log-In</h2>
+      <label className="label">Username</label><br/>
+    <input className="inputs" type="text" id="fname" value={this.state.username} onChange={this.handleUsername} name="firstname" placeholder="Your Username.."/><br/>
     
-    <label >Password</label><br/>
-    <input type="password" id="password" name="password"  value={this.state.password}  onChange={this.handlePassword} onChange={this.handlePassword} placeholder="Your password"/><br/>
-     <button type="submit" onClick={this.handleSubmit}>Log In</button>
+    <label className="label">Password</label><br/>
+    <input className="inputs" type="password" id="password" name="password"  value={this.state.password}  onChange={this.handlePassword} onChange={this.handlePassword} placeholder="Your password"/><br/>
+     <button className="submitbtn btn" type="submit" onClick={this.handleSubmit}>Log In</button>
     </form>  
       </div>
     );  

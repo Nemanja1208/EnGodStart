@@ -1,7 +1,7 @@
 import React from "react";
 import { default as localforage } from "localforage";
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Switch,
   Route,
   Link
@@ -12,6 +12,7 @@ import Login from "./login/login.jsx";
 import List from "../components/allaboutlists/list.jsx";
 import Posts from "../components/allaboutlists/posts.jsx";
 import Welcome from "../components/welcome.js";
+import style from "../components/login/formstyle.css";
 
 
 class App extends React.Component {
@@ -74,20 +75,15 @@ class App extends React.Component {
     if(!UserStatus){
     return (
       <Router>
-      <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/register">Register</Link>
-            </li>
-            <li>
-              <Link to="/login">Login</Link>
-            </li>
-          </ul>
-        </nav>
 
-        {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
+      <div className="center" >
+        <div className="topnav">
+
+              <a className="active2"><Link to="/register">Register</Link></a>
+
+              <a className="active1"><Link to="/login">Login</Link></a>
+
+        </div> 
         <Switch>
           <Route path="/register">
             <Register changingState={this.changingstate}/>

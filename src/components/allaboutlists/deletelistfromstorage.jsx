@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { default as localforage } from "localforage";
+import style from "../login/formstyle.css";
+
 
  class DeleteListButton extends React.Component{
     constructor(props) {
@@ -26,7 +28,7 @@ import { default as localforage } from "localforage";
     render() {
         return (
             <div>
-            <button onClick={this.deletecurrentList}>Donation Completed ? Click</button>
+            <button className="deleteicon" onClick={this.deletecurrentList}>Delete</button>
             </div>
         );
 

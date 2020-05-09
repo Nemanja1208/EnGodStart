@@ -45,30 +45,12 @@ class Posts extends React.Component {
             this.delete.innerHTML = '';
         }
 
-    // componentWillMount(){
-    //     window.addEventListener("load", this.getLists);
-    // }
-    // componentDidMount(){}
-    // renderprops(){
-    //     console.log(this.state.thelist);
-    //     const stateofcomponent = this.state.thelist;
-    //     return stateofcomponent.map((properties, index) =>
-    //     <LSProps
-    //         key={index}
-    //         name={properties.name}
-    //         type={properties.type}
-    //         amount={properties.amount}
-    //         expdate={properties.expdate}
-    //         location={properties.location}
-    //     />)
-    // }
-
     render() {
         if(this.state.thelist.length > 1){
             return(
             <div>
             <h1>Today's Donations</h1>
-            <button onClick={this.getLists}>Get the Donations</button>
+            <button className="submitbtn btn" onClick={this.getLists}>Get the Donations</button>
             <div className="card">
                   <table>
                   <tr>
@@ -77,6 +59,7 @@ class Posts extends React.Component {
                     <th>Amount</th>
                     <th>Expiration Date</th>
                     <th>Pick Up Location</th>
+                    <th>Donation Completed ?</th>
                 </tr>
 
                     {Object.keys(this.state.thelist).map(item => <tr key={item}>
@@ -94,7 +77,7 @@ class Posts extends React.Component {
     return(
         <div>
             <h1>Today's Donations</h1>
-            <button onClick={this.getLists}>Get the Donations</button>         
+            <button className="submitbtn btn" onClick={this.getLists}>Get the Donations</button>         
         </div>     
     );
     }}}

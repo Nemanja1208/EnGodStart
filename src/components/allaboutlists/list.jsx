@@ -102,26 +102,26 @@ class List extends React.Component {
 
     return (
 
-        <div>
-            <h1>Donate Today</h1>
-            <h2>Post a LIST with todays DONATION</h2>
+      <div className="forms">
       <form >
-      <label >Name of your Organisation</label><br/>
-    <input type="text" id="name" value={this.state.name} onChange={this.handleName} name="name" placeholder="Organization Name"/><br/>
-      <label >Type of food that you are donation</label><br/>
-    <input type="text" id="type" value={this.state.typeoffood} onChange={this.handleType} name="foodtype" placeholder="Type of food"/><br/>
+      <h1>Donate Today</h1>
+      <h3>Post a LIST with todays DONATION</h3>
+      <label className="label">Name of your Organisation</label><br/>
+    <input className="inputs" type="text" id="name" value={this.state.name} onChange={this.handleName} name="name" placeholder="Organization Name"/><br/>
+      <label className="label">Type of food that you are donation</label><br/>
+    <input className="inputs" type="text" id="type" value={this.state.typeoffood} onChange={this.handleType} name="foodtype" placeholder="Type of food"/><br/>
 
-    <label >Amount</label><br/>
-    <input type="text" id="amount" name="amount" value={this.state.amount} onChange={this.handleAmount} placeholder="Amount in KG"/><br/>
+    <label className="label">Amount</label><br/>
+    <input className="inputs" type="text" id="amount" name="amount" value={this.state.amount} onChange={this.handleAmount} placeholder="Amount in KG"/><br/>
 
-    <label >Expiration Date</label><br/>
-    <input type="text" id="expdate" name="expdate" value={this.state.expirationdate} onChange={this.handleExpDate} placeholder="How many days left ?"/><br/>
+    <label className="label">Expiration Date</label><br/>
+    <input className="inputs" type="text" id="expdate" name="expdate" value={this.state.expirationdate} onChange={this.handleExpDate} placeholder="How many days left ?"/><br/>
 
-    <label >Location that you are donating from</label><br/>
-    <input type="text" id="location" name="location" value={this.state.pickuplocation} onChange={this.handleLocation} placeholder="Location you are donating from"/><br/>
+    <label className="label">Location that you are donating from</label><br/>
+    <input className="inputs" type="text" id="location" name="location" value={this.state.pickuplocation} onChange={this.handleLocation} placeholder="Location you are donating from"/><br/>
     
     
-    <button type="submit" onClick={this.handleSubmit}>Post the List</button>
+    <button className="submitbtn btn" type="submit" onClick={this.handleSubmit}>Post the List</button>
     
       </form>  
       </div>

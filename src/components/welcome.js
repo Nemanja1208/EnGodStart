@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { default as localforage } from "localforage";
 import {
-	BrowserRouter as Router,
+	HashRouter as Router,
 	Switch,
 	Route,
 	Link
@@ -31,12 +31,13 @@ class Welcome extends React.Component {
 		return (
 			<div>
 				<h1>Welcome to the HOPE-app</h1>
-				<button onClick={this.logout}>Log out</button>
-				<h2>Help other people eat</h2>
+				<button className="logout" onClick={this.logout}>Log out</button>
+				<h3>[Help other people eat]</h3>
+				
 				
         <Router>
-        <button><Link to="/posts">Donation Posts</Link></button>
-		<button><Link to="/List">Make a donation post</Link></button>
+        <button className="btn submitbtn"><Link to="/posts">Donation Feed</Link></button>
+		<button className="btn submitbtn"><Link to="/List">Post a donation</Link></button>
         <Switch>
         <Route path="/posts">
         <Posts/>
