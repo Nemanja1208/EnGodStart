@@ -13,6 +13,7 @@ import List from "../components/allaboutlists/list.jsx";
 import Posts from "../components/allaboutlists/posts.jsx";
 import Welcome from "../components/welcome.js";
 import style from "../components/login/formstyle.css";
+import ErrorBoundary from "../components/allaboutlists/errorboundry.jsx";  
 
 
 class App extends React.Component {
@@ -32,29 +33,7 @@ class App extends React.Component {
         console.log(err);
       })
       }
-  //  componentDidMount(){
-  //   this.setState({isLoggedIn: true});
-    //  console.log(this.state.isLoggedIn);
-    //  localforage.getItem('UserLoggedIn').then(value =>{
-    //    this.setState({isLoggedIn: value});
-    //  }).catch(function(err){
-    //    console.log(err);
-    //  });
-  //  } 
-  
-  // componentWillMount(){
-  //  // localforage.getItem("UserLoggedIn").then(value =>{
-  //   //  this.setState({isLoggedIn: value});
-  //  // }).catch(function(err){
-  //   //    console.log(err);
-  //   //});
 
-  //   localforage.getItem('UserLoggedIn').then(value =>{
-  //     this.setState({isLoggedIn: value});
-  //   }).catch(function(err){
-  //     console.log(err);
-  //   });
-  //  }
 
     changingstate(){
     this.setState({isLoggedIn: true});
@@ -64,14 +43,7 @@ class App extends React.Component {
   render() {
      const UserStatus = this.state.isLoggedIn;
      console.log(UserStatus);
-    // const LocalStorageUserStatus = localforage.getItem("UserLoggedIn").then(value => {
-    //   LocalStorageUserStatus = value;
-    //   console.log(value);
-    //   this.state.isLoggedIn = LocalStorageUserStatus;
-    //   console.log(LocalStorageUserStatus);
-    // }).catch(function(err){
-    //   console.log(err);
-    // });
+
     if(!UserStatus){
     return (
       <Router>
@@ -97,9 +69,9 @@ class App extends React.Component {
     );}
     return(
       <div>
-        
+        <ErrorBoundary>
         <Welcome/>
-        
+        </ErrorBoundary>
       </div>
     )
 

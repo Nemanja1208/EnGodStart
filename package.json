@@ -1,12 +1,13 @@
 {
-  "name": "HOPE-APP",
+  "name": "hope-app",
   "version": "1.0.0",
   "description": "Inlämning 1 + 3",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --open --mode development --port 9000 --contentBase ./public",
     "build": "webpack --mode production",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -23,7 +24,11 @@
     "@babel/core": "^7.9.6",
     "@babel/preset-env": "^7.9.6",
     "@babel/preset-react": "^7.9.4",
+    "babel-core": "^6.26.3",
     "babel-loader": "^8.1.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
     "css-loader": "^3.5.3",
     "html-loader": "^1.1.0",
     "html-webpack-plugin": "^4.3.0",
@@ -33,13 +38,19 @@
     "webpack-dev-server": "^3.10.3"
   },
   "dependencies": {
+    "axios": "^0.19.2",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
     "jquery": "^3.5.0",
     "localforage": "^1.7.3",
+    "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.1.2",
     "style-loader": "^1.2.1",
     "systemjs": "^6.3.1",
     "traceur": "0.0.111"
-  }
+  },
+  "proxy": "http://localhost:5000/"
 }
