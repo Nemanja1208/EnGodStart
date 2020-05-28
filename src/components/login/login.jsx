@@ -1,6 +1,8 @@
 import React from "react";
 import { default as localforage } from "localforage";
 import style from "../login/formstyle.css";
+import Footer from "../login/Footer.jsx";
+import Clock from "../login/clock.jsx";
 
 
 class Login extends React.Component {
@@ -62,6 +64,7 @@ class Login extends React.Component {
 
         <div>
 
+          <Clock/>
       <form className="forms">
       <h1>Welcome to the Hope App</h1>
           <h3>[Help Other People Eat]</h3>
@@ -74,7 +77,9 @@ class Login extends React.Component {
     <input className="inputs" type="password" id="password" name="password"  value={this.state.password}  onChange={this.handlePassword} onChange={this.handlePassword} placeholder="Your password"/><br/>
      <button className="submitbtn btn" type="submit" onClick={this.handleSubmit}>Log In</button>
     </form>  
+    <div><Footer/></div>
       </div>
+      
     );  
     }
     }

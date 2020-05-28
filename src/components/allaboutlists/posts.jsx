@@ -3,14 +3,6 @@ import ReactDOM from 'react-dom';
 import { default as localforage } from "localforage";
 import LSProps from "../allaboutlists/localstoragelistprops.jsx";
 import DeleteListButton from "../allaboutlists/deletelistfromstorage.jsx";
-import UsingAxios from '../api/test.jsx';
-import Rankings from '../api/rankings.jsx';
-import {
-	HashRouter as Router,
-	Switch,
-	Route,
-	Link
-  } from "react-router-dom";
 
 class Posts extends React.Component {
   constructor(props){
@@ -45,22 +37,23 @@ class Posts extends React.Component {
         //Version of deleting the localstorage lists (beginer version)
         deletelist(){
             //Passing down the list properties in the HTML elements
+            
             this.nameOfOrg.innerHTML = '';
             this.type.innerHTML = '';
             this.amountinkg.innerHTML = '';
             this.expirationdate.innerHTML = '';
             this.locationofpickup.innerHTML = '';
             this.delete.innerHTML = '';
+            
         }
 
     render() {
         if(this.state.thelist.length > 1){
             return(
             <div>
-            <h1>Donations & Rankings</h1>
-            <button className="submitbtn btn" onClick={this.getLists}>Load Donations</button>
-            <div className="card">
             <h1>Today's Donations</h1>
+            <button className="submitbtn btn" onClick={this.getLists}>Get the Donations</button>
+            <div className="card">
                   <table>
                   <tr>
                     <th>Company/Organisation</th>
@@ -78,22 +71,16 @@ class Posts extends React.Component {
                        <td> {this.state.thelist[item].expdate}</td>
                        <td> {this.state.thelist[item].pickuplocation}</td>
                        <td><DeleteListButton nr={item}/></td>
-                       
                     </tr>)}
                  </table>
-                 <Rankings/>
             </div>
-            
             </div>
             )} else {
     return(
         <div>
             <h1>Today's Donations</h1>
-            <button className="submitbtn btn" onClick={this.getLists}>Load the Donations</button>   
-            
-            {/* <Rankings/> */}
-        </div>   
-     
+            <button className="submitbtn btn" onClick={this.getLists}>Get the Donations</button>         
+        </div>     
     );
     }}}
     export default Posts ;

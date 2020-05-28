@@ -10,6 +10,8 @@ import {
 
 import List from "../components/allaboutlists/list.jsx";
 import Posts from "../components/allaboutlists/posts.jsx";
+import Footer from "../components/login/Footer.jsx";
+import Clock from "../components/login/clock.jsx";
 
 class Welcome extends React.Component {
 
@@ -47,6 +49,8 @@ class Welcome extends React.Component {
         </Route>
         </Switch>
         </Router>
+		<Clock/>
+		<Footer/>
 			</div>
 		);
 	}

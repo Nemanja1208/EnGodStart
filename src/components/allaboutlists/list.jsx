@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { default as localforage } from "localforage";
-import PropTypes from "prop-types";
 
 class List extends React.Component {
   constructor(props){
@@ -69,12 +68,12 @@ class List extends React.Component {
           pickuplocation: this.state.pickuplocation});
           localforage.setItem('Lists', JSON.stringify(listinfo)).then(function (info){
             console.log(info);
+
           })
           .catch(function(err){
               console.log(err);
                   });
                   this.setState({name: '', typeoffood:'', amount:'', expirationdate:'',pickuplocation:''});
-                  alert("Donation is submited");
         }
         
         //Otherwise we just push to the existing array
@@ -90,15 +89,14 @@ class List extends React.Component {
             localforage.setItem('Lists', JSON.stringify(lists)).then(function (info){
               console.log(info);
               this.setState({name: '', typeoffood:'', amount:'', expirationdate:'',pickuplocation:''});
-              alert("Donation is submited");
             })
             .catch(function(err){
                 console.log(err);
                     });
-                    this.setState({name: '', typeoffood:'', amount:'', expirationdate:'',pickuplocation:''});
-                    alert("Donation is submited");   
+                    this.setState({name: '', typeoffood:'', amount:'', expirationdate:'',pickuplocation:''});   
      }});
     }
+
 
     render() {
 
